@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Евгения Колесникова</title>
+<meta name="description" content="Евгения Колесникова, студентка ДВФУ: прикладная математика и информатика, системное программирование. Python, C++, математика и котики.">
+<meta name="theme-color" content="#ffe8ef">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://kkaraumi.ru/">
+<meta property="og:title" content="Евгения Колесникова">
+<meta property="og:description" content="Студентка ДВФУ, системное программирование. Python, C++, математика и котики.">
+<meta property="og:image" content="https://kkaraumi.ru/assets/img/photo.jpg">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Nunito:wght@400;600;800;900&family=Unbounded:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="cat-sit" viewBox="0 0 120 130">
+    <path d="M94 114 C122 110 122 80 106 74" fill="none" stroke="var(--fur)" stroke-width="10" stroke-linecap="round"/>
+    <ellipse cx="60" cy="98" rx="38" ry="30" fill="var(--fur)"/>
+    <ellipse cx="60" cy="104" rx="20" ry="18" fill="var(--belly)"/>
+    <path d="M26 46 L30 8 L56 28 Z" fill="var(--fur)" stroke="var(--fur)" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M94 46 L90 8 L64 28 Z" fill="var(--fur)" stroke="var(--fur)" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M33 34 L35 17 L47 28 Z" fill="var(--ear)"/>
+    <path d="M87 34 L85 17 L73 28 Z" fill="var(--ear)"/>
+    <ellipse cx="60" cy="52" rx="36" ry="30" fill="var(--fur)"/>
+    <ellipse cx="39" cy="62" rx="7" ry="4.5" fill="#ff8fb1" opacity=".55"/>
+    <ellipse cx="81" cy="62" rx="7" ry="4.5" fill="#ff8fb1" opacity=".55"/>
+    <circle cx="46" cy="52" r="4.8" fill="var(--eye)"/>
+    <circle cx="74" cy="52" r="4.8" fill="var(--eye)"/>
+    <circle cx="47.6" cy="50.4" r="1.6" fill="#fff"/>
+    <circle cx="75.6" cy="50.4" r="1.6" fill="#fff"/>
+    <path d="M57 59 h6 l-3 3.5 Z" fill="#f27a9f"/>
+    <path d="M54 64 q3 3.5 6 0 q3 3.5 6 0" fill="none" stroke="var(--eye)" stroke-width="1.8" stroke-linecap="round"/>
+    <ellipse cx="46" cy="125" rx="10" ry="5.5" fill="var(--fur)"/>
+    <ellipse cx="74" cy="125" rx="10" ry="5.5" fill="var(--fur)"/>
+  </symbol>
+
+  <symbol id="cat-loaf" viewBox="0 0 150 104">
+    <path d="M126 86 C146 84 146 64 136 60" fill="none" stroke="var(--fur)" stroke-width="9" stroke-linecap="round"/>
+    <ellipse cx="75" cy="74" rx="60" ry="26" fill="var(--fur)"/>
+    <path d="M44 42 L47 10 L68 28 Z" fill="var(--fur)" stroke="var(--fur)" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M106 42 L103 10 L82 28 Z" fill="var(--fur)" stroke="var(--fur)" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M50 32 L51 18 L61 27 Z" fill="var(--ear)"/>
+    <path d="M100 32 L99 18 L89 27 Z" fill="var(--ear)"/>
+    <ellipse cx="75" cy="50" rx="35" ry="28" fill="var(--fur)"/>
+    <ellipse cx="55" cy="60" rx="6.5" ry="4" fill="#ff8fb1" opacity=".55"/>
+    <ellipse cx="95" cy="60" rx="6.5" ry="4" fill="#ff8fb1" opacity=".55"/>
+    <path d="M57 51 q5 -6 10 0 M83 51 q5 -6 10 0" fill="none" stroke="var(--eye)" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M72 57 h6 l-3 3.5 Z" fill="#f27a9f"/>
+    <path d="M69 62 q3 3.5 6 0 q3 3.5 6 0" fill="none" stroke="var(--eye)" stroke-width="1.8" stroke-linecap="round"/>
+    <ellipse cx="58" cy="98" rx="11" ry="5.5" fill="var(--fur)"/>
+    <ellipse cx="92" cy="98" rx="11" ry="5.5" fill="var(--fur)"/>
+  </symbol>
+
+  <symbol id="cat-sleep" viewBox="0 0 150 100">
+    <ellipse cx="84" cy="66" rx="58" ry="28" fill="var(--fur)"/>
+    <path d="M30 40 L26 14 L48 30 Z" fill="var(--fur)" stroke="var(--fur)" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M56 32 L70 12 L72 40 Z" fill="var(--fur)" stroke="var(--fur)" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M33 31 L31 21 L40 28 Z" fill="var(--ear)"/>
+    <path d="M62 30 L68 21 L68 34 Z" fill="var(--ear)"/>
+    <ellipse cx="48" cy="58" rx="28" ry="25" fill="var(--fur)"/>
+    <path d="M30 58 q5 4 10 0 M50 58 q5 4 10 0" fill="none" stroke="var(--eye)" stroke-width="2.4" stroke-linecap="round"/>
+    <ellipse cx="32" cy="66" rx="5.5" ry="3.5" fill="#ff8fb1" opacity=".55"/>
+    <ellipse cx="62" cy="66" rx="5.5" ry="3.5" fill="#ff8fb1" opacity=".55"/>
+    <path d="M42.5 64 h5 l-2.5 3 Z" fill="#f27a9f"/>
+    <path d="M28 88 C50 100 116 100 136 80" fill="none" stroke="var(--line)" stroke-width="13" stroke-linecap="round"/>
+    <path d="M28 88 C50 100 116 100 136 80" fill="none" stroke="var(--fur)" stroke-width="9" stroke-linecap="round"/>
+    <text x="104" y="30" font-family="Caveat, cursive" font-size="22" font-weight="700" fill="var(--eye)">z</text>
+    <text x="118" y="18" font-family="Caveat, cursive" font-size="16" font-weight="700" fill="var(--eye)">z</text>
+  </symbol>
+
+  <symbol id="cat-peek" viewBox="0 0 120 86">
+    <path d="M26 42 L30 6 L54 24 Z" fill="var(--fur)" stroke="var(--fur)" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M94 42 L90 6 L66 24 Z" fill="var(--fur)" stroke="var(--fur)" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M33 31 L35 15 L46 25 Z" fill="var(--ear)"/>
+    <path d="M87 31 L85 15 L74 25 Z" fill="var(--ear)"/>
+    <ellipse cx="60" cy="50" rx="37" ry="30" fill="var(--fur)"/>
+    <circle cx="45" cy="48" r="6" fill="var(--eye)"/>
+    <circle cx="75" cy="48" r="6" fill="var(--eye)"/>
+    <circle cx="47" cy="46" r="2" fill="#fff"/>
+    <circle cx="77" cy="46" r="2" fill="#fff"/>
+    <ellipse cx="37" cy="60" rx="6.5" ry="4" fill="#ff8fb1" opacity=".55"/>
+    <ellipse cx="83" cy="60" rx="6.5" ry="4" fill="#ff8fb1" opacity=".55"/>
+    <path d="M57 56 h6 l-3 3.5 Z" fill="#f27a9f"/>
+    <ellipse cx="60" cy="64" rx="3" ry="3.4" fill="var(--eye)"/>
+    <ellipse cx="32" cy="78" rx="14" ry="8" fill="var(--fur)"/>
+    <ellipse cx="88" cy="78" rx="14" ry="8" fill="var(--fur)"/>
+    <path d="M27 74 v6 M33 73 v7 M83 73 v7 M89 74 v6" stroke="var(--line)" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="paw" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="68" rx="25" ry="21"/>
+    <ellipse cx="20" cy="44" rx="10" ry="13" transform="rotate(-25 20 44)"/>
+    <ellipse cx="39" cy="26" rx="10" ry="13" transform="rotate(-8 39 26)"/>
+    <ellipse cx="61" cy="26" rx="10" ry="13" transform="rotate(8 61 26)"/>
+    <ellipse cx="80" cy="44" rx="10" ry="13" transform="rotate(25 80 44)"/>
+  </symbol>
+
+  <symbol id="bow" viewBox="0 0 120 70">
+    <path d="M60 30 C44 4 8 2 10 28 C12 52 42 46 60 30 Z" fill="#f47ea6" stroke="#3d1a2b" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M60 30 C76 4 112 2 110 28 C108 52 78 46 60 30 Z" fill="#f47ea6" stroke="#3d1a2b" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M55 34 L40 66 L50 62 L56 68 L60 36 Z" fill="#f47ea6" stroke="#3d1a2b" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M65 34 L80 66 L70 62 L64 68 L60 36 Z" fill="#f47ea6" stroke="#3d1a2b" stroke-width="2.5" stroke-linejoin="round"/>
+    <rect x="51" y="22" width="18" height="17" rx="7" fill="#f47ea6" stroke="#3d1a2b" stroke-width="2.5"/>
+    <path d="M24 22 q8 -8 20 0 M76 22 q12 -8 20 0" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>
+  </symbol>
+</svg>
+
+<a class="skip" href="#main">Перейти к содержимому</a>
+
+<header class="top">
+  <div class="top-inner">
+    <a class="logo" href="#hero" aria-label="В начало страницы">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#paw"/></svg>
+      <span data-text="site.nick"></span>
+    </a>
+    <nav class="nav" id="menu" aria-label="Разделы сайта">
+      <ul class="nav-list" id="navList"></ul>
+    </nav>
+    <a class="nav-cta" href="#contact" data-text="site.contactLink"></a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <div class="hero-text">
+      <p class="chip"><span class="dot" aria-hidden="true"></span><span data-text="hero.chip"></span></p>
+      <h1 id="hero-title"><span data-text="hero.firstName"></span><br><span data-text="hero.lastName"></span></h1>
+      <p class="lead" data-text="hero.lead"></p>
+      <div class="hero-buttons">
+        <a class="btn" href="#projects" data-text="hero.primary"></a>
+        <a class="btn btn-ghost" href="#contact" data-text="hero.secondary"></a>
+      </div>
+      <dl class="facts" id="heroFacts"></dl>
+    </div>
+
+    <div class="hero-visual">
+      <div class="arch">
+        <svg class="bow" viewBox="0 0 120 70" aria-hidden="true"><use href="#bow"/></svg>
+        <div class="arch-photo">
+          <img id="heroPhoto" src="assets/img/photo.jpg" alt="" width="600" height="800">
+        </div>
+      </div>
+
+      <figure class="code" id="codeWindow">
+        <div class="code-bar" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <p data-text="code.file"></p>
+        </div>
+        <pre id="codeBody"></pre>
+        <figcaption class="visually-hidden" data-text="code.caption"></figcaption>
+      </figure>
+
+      <div class="sticker s-hero-1 ginger" style="rotate:8deg" role="button" tabindex="0" aria-label="Рыжий котик"><svg viewBox="0 0 150 104" aria-hidden="true"><use href="#cat-loaf"/></svg></div>
+      <div class="sticker s-hero-2 black" style="rotate:-6deg" role="button" tabindex="0" aria-label="Чёрный котик"><svg viewBox="0 0 120 130" aria-hidden="true"><use href="#cat-sit"/></svg></div>
+    </div>
+    <p class="drag-hint" data-text="hero.hint"></p>
+  </section>
+
+  <section class="section about" id="about" aria-labelledby="about-title">
+    <div class="section-head">
+      <h2 id="about-title" data-text="about.title"></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text" id="aboutText"></div>
+      <div class="card about-card">
+        <div class="sticker s-peek cream" role="button" tabindex="0" aria-label="Котик выглядывает"><svg viewBox="0 0 120 86" aria-hidden="true"><use href="#cat-peek"/></svg></div>
+        <dl id="aboutCard"></dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section stack" id="skills" aria-labelledby="skills-title">
+    <div class="section-head">
+      <h2 id="skills-title" data-text="skills.title"></h2>
+      <p data-text="skills.intro"></p>
+      <div class="sticker s-stack black" style="rotate:4deg" role="button" tabindex="0" aria-label="Чёрный котик"><svg viewBox="0 0 150 104" aria-hidden="true"><use href="#cat-loaf"/></svg></div>
+    </div>
+    <ul class="skills" id="skillsList"></ul>
+    <p class="legend">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#paw"/></svg>
+      <span data-text="skills.legend"></span>
+    </p>
+  </section>
+
+  <section class="section projects" id="projects" aria-labelledby="projects-title">
+    <div class="section-head">
+      <h2 id="projects-title" data-text="projects.title"></h2>
+      <p data-text="projects.intro"></p>
+    </div>
+    <div class="project-list" id="projectList"></div>
+    <div class="sticker s-proj ginger" style="rotate:-7deg" role="button" tabindex="0" aria-label="Рыжий котик"><svg viewBox="0 0 120 130" aria-hidden="true"><use href="#cat-sit"/></svg></div>
+  </section>
+
+  <section class="section hobbies" id="hobbies" aria-labelledby="hobbies-title">
+    <div class="section-head">
+      <h2 id="hobbies-title" data-text="hobbies.title"></h2>
+      <p data-text="hobbies.intro"></p>
+    </div>
+    <div class="bento" id="hobbyList"></div>
+    <div class="sticker s-hobby grey" style="rotate:3deg" role="button" tabindex="0" aria-label="Спящий котик"><svg viewBox="0 0 150 100" aria-hidden="true"><use href="#cat-sleep"/></svg></div>
+  </section>
+
+  <section class="section contacts" id="contact" aria-labelledby="contact-title">
+    <div class="vault">
+      <p class="vault-tag" data-text="contact.tag"></p>
+      <h2 id="contact-title" data-text="contact.title"></h2>
+      <p class="contacts-intro" data-text="contact.intro"></p>
+
+    <div class="stage" id="stage">
+      <span class="alarm" aria-hidden="true">!</span>
+      <svg class="bomb-cat" id="bombCat" viewBox="0 0 120 130" aria-hidden="true">
+        <path d="M94 114 C122 110 122 80 106 74" fill="none" stroke="var(--fur)" stroke-width="10" stroke-linecap="round"/>
+        <ellipse cx="60" cy="98" rx="38" ry="30" fill="var(--fur)"/>
+        <ellipse cx="60" cy="104" rx="20" ry="18" fill="var(--belly)"/>
+        <path d="M26 46 L30 8 L56 28 Z" fill="var(--fur)" stroke="var(--fur)" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M94 46 L90 8 L64 28 Z" fill="var(--fur)" stroke="var(--fur)" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M33 34 L35 17 L47 28 Z" fill="var(--ear)"/>
+        <path d="M87 34 L85 17 L73 28 Z" fill="var(--ear)"/>
+        <ellipse cx="60" cy="52" rx="36" ry="30" fill="var(--fur)"/>
+        <g class="frizz" fill="none" stroke="var(--fur)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M34 30 l-6 -8 l8 -2 l-4 -9"/>
+          <path d="M50 23 l-3 -10 l7 2 l-1 -11"/>
+          <path d="M68 23 l2 -10 l5 4 l3 -10"/>
+          <path d="M86 30 l7 -7 l-7 -3 l6 -8"/>
+          <path d="M22 70 l-8 1 l5 5 l-8 4"/>
+          <path d="M98 70 l8 1 l-5 5 l8 4"/>
+        </g>
+        <ellipse class="cheek" cx="39" cy="62" rx="7" ry="4.5" fill="#ff8fb1" opacity=".55"/>
+        <ellipse class="cheek" cx="81" cy="62" rx="7" ry="4.5" fill="#ff8fb1" opacity=".55"/>
+        <g class="eyes">
+          <circle cx="46" cy="52" r="5" fill="var(--eye)"/>
+          <circle cx="74" cy="52" r="5" fill="var(--eye)"/>
+        </g>
+        <circle class="shine" cx="47.6" cy="50.4" r="1.6" fill="#fff"/>
+        <circle class="shine" cx="75.6" cy="50.4" r="1.6" fill="#fff"/>
+        <path d="M57 59 h6 l-3 3.5 Z" fill="#f27a9f"/>
+        <path class="mouth-ok" d="M54 64 q3 3.5 6 0 q3 3.5 6 0" fill="none" stroke="var(--eye)" stroke-width="1.8" stroke-linecap="round"/>
+        <ellipse class="mouth-shock" cx="60" cy="68" rx="3.5" ry="4.5" fill="#fff"/>
+        <ellipse cx="46" cy="125" rx="10" ry="5.5" fill="var(--fur)"/>
+        <ellipse cx="74" cy="125" rx="10" ry="5.5" fill="var(--fur)"/>
+      </svg>
+
+      <div class="smoke" aria-hidden="true"><span></span><span></span><span></span></div>
+
+      <svg class="cloud" viewBox="0 0 280 320" aria-hidden="true">
+        <defs>
+          <radialGradient id="fire" cx="50%" cy="55%" r="55%">
+            <stop offset="0" stop-color="#fffbe0"/>
+            <stop offset=".35" stop-color="#ffd76e"/>
+            <stop offset=".7" stop-color="#ff8f6b"/>
+            <stop offset="1" stop-color="#e2557f"/>
+          </radialGradient>
+          <linearGradient id="stemGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffb08a"/>
+            <stop offset=".5" stop-color="#f28aa8"/>
+            <stop offset="1" stop-color="#c98aa3"/>
+          </linearGradient>
+        </defs>
+        <g class="base">
+          <ellipse cx="140" cy="302" rx="136" ry="18" fill="#e7b9c9"/>
+          <circle cx="34" cy="290" r="24" fill="#f0c6d4"/>
+          <circle cx="246" cy="290" r="24" fill="#f0c6d4"/>
+          <circle cx="72" cy="278" r="34" fill="#f6d3de"/>
+          <circle cx="208" cy="278" r="34" fill="#f6d3de"/>
+          <circle cx="104" cy="262" r="40" fill="#f9dbe4"/>
+          <circle cx="176" cy="262" r="40" fill="#f9dbe4"/>
+          <circle cx="140" cy="250" r="44" fill="#ffe4ec"/>
+        </g>
+        <ellipse class="ring" cx="140" cy="300" rx="24" ry="7" fill="none" stroke="#fff" stroke-width="4"/>
+        <g class="stem">
+          <path d="M112 270 C118 230 122 200 124 160 L156 160 C158 200 162 230 168 270 Z" fill="url(#stemGrad)"/>
+          <ellipse cx="140" cy="206" rx="50" ry="14" fill="#f6c3d2"/>
+          <ellipse cx="140" cy="202" rx="40" ry="8" fill="#ffd9e3"/>
+        </g>
+        <g class="cap">
+          <circle cx="78" cy="138" r="34" fill="#f2a7bd"/>
+          <circle cx="202" cy="138" r="34" fill="#f2a7bd"/>
+          <circle cx="98" cy="96" r="42" fill="#f7b9cb"/>
+          <circle cx="182" cy="96" r="42" fill="#f7b9cb"/>
+          <circle cx="140" cy="74" r="50" fill="#ffc9d7"/>
+          <circle cx="140" cy="124" r="56" fill="url(#fire)"/>
+          <circle class="core" cx="140" cy="118" r="38" fill="#fff4c4"/>
+          <circle cx="112" cy="70" r="12" fill="#fff" opacity=".45"/>
+        </g>
+      </svg>
+    </div>
+
+      <button class="paw-btn" id="pawBtn" type="button">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#paw"/></svg>
+        <span class="paw-label" id="pawLabel"></span>
+      </button>
+      <p class="cat-status" id="catStatus" aria-live="polite"></p>
+
+      <ul class="contact-list locked" id="contactList" inert></ul>
+
+      <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="wave" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/><path class="mute" d="M16 9l5 6M21 9l-5 6"/></svg>
+        <span id="soundLabel"></span>
+      </button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <p class="footer-name" data-text="footer.name"></p>
+    <p data-text="footer.note"></p>
+    <div class="sticker s-foot cream" style="rotate:-3deg" role="button" tabindex="0" aria-label="Котик в подвале"><svg viewBox="0 0 150 104" aria-hidden="true"><use href="#cat-loaf"/></svg></div>
+  </div>
+</footer>
+
+<div class="flash" id="flash" aria-hidden="true"></div>
+
+</body>
+</html>
