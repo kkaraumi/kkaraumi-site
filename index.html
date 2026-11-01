@@ -96,6 +96,37 @@
     <path d="M27 74 v6 M33 73 v7 M83 73 v7 M89 74 v6" stroke="var(--line)" stroke-width="1.6" stroke-linecap="round"/>
   </symbol>
 
+  <symbol id="cat-hang" viewBox="0 0 80 124">
+    <path d="M40 92 C58 100 62 116 52 120" fill="none" stroke="var(--fur)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M30 14 L28 40 M50 14 L52 40" stroke="var(--fur)" stroke-width="11" stroke-linecap="round"/>
+    <ellipse cx="34" cy="10" rx="7" ry="6" fill="var(--fur)"/>
+    <ellipse cx="46" cy="10" rx="7" ry="6" fill="var(--fur)"/>
+    <ellipse cx="40" cy="86" rx="21" ry="24" fill="var(--fur)"/>
+    <ellipse cx="40" cy="90" rx="11" ry="14" fill="var(--belly)"/>
+    <ellipse cx="31" cy="110" rx="7" ry="5" fill="var(--fur)"/>
+    <ellipse cx="49" cy="110" rx="7" ry="5" fill="var(--fur)"/>
+    <path d="M16 40 L17 18 L32 30 Z" fill="var(--fur)" stroke="var(--fur)" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M64 40 L63 18 L48 30 Z" fill="var(--fur)" stroke="var(--fur)" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M21 32 L21 23 L28 29 Z" fill="var(--ear)"/>
+    <path d="M59 32 L59 23 L52 29 Z" fill="var(--ear)"/>
+    <ellipse cx="40" cy="48" rx="25" ry="21" fill="var(--fur)"/>
+    <ellipse cx="26" cy="55" rx="5" ry="3" fill="#ff8fb1" opacity=".55"/>
+    <ellipse cx="54" cy="55" rx="5" ry="3" fill="#ff8fb1" opacity=".55"/>
+    <circle cx="31" cy="47" r="3.6" fill="var(--eye)"/>
+    <circle cx="49" cy="47" r="3.6" fill="var(--eye)"/>
+    <circle cx="32.2" cy="45.8" r="1.2" fill="#fff"/>
+    <circle cx="50.2" cy="45.8" r="1.2" fill="#fff"/>
+    <path d="M38 52 h4 l-2 2.5 Z" fill="#f27a9f"/>
+    <path d="M36 56 q2 2.5 4 0 q2 2.5 4 0" fill="none" stroke="var(--eye)" stroke-width="1.4" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="leaf" viewBox="0 0 64 64">
+    <path d="M32 60 V30" fill="none" stroke="#5d9c6b" stroke-width="4" stroke-linecap="round"/>
+    <path d="M32 36 C18 36 8 26 8 10 C24 10 32 20 32 36 Z" fill="#8fd19e"/>
+    <path d="M32 30 C44 30 56 22 56 6 C40 6 32 16 32 30 Z" fill="#a8e0b4"/>
+    <path d="M14 15 C20 22 26 28 31 34 M50 11 C44 17 38 23 33 28" fill="none" stroke="#5d9c6b" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+
   <symbol id="paw" viewBox="0 0 100 100">
     <ellipse cx="50" cy="68" rx="25" ry="21"/>
     <ellipse cx="20" cy="44" rx="10" ry="13" transform="rotate(-25 20 44)"/>
@@ -125,6 +156,10 @@
     <nav class="nav" id="menu" aria-label="Разделы сайта">
       <ul class="nav-list" id="navList"></ul>
     </nav>
+    <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="wave" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/><path class="mute" d="M16 9l5 6M21 9l-5 6"/></svg>
+      <span id="soundLabel"></span>
+    </button>
     <a class="nav-cta" href="#contact" data-text="site.contactLink"></a>
     <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Открыть меню">
       <span></span><span></span><span></span>
@@ -166,6 +201,97 @@
       <div class="sticker s-hero-1 ginger" style="rotate:8deg" role="button" tabindex="0" aria-label="Рыжий котик"><svg viewBox="0 0 150 104" aria-hidden="true"><use href="#cat-loaf"/></svg></div>
       <div class="sticker s-hero-2 black" style="rotate:-6deg" role="button" tabindex="0" aria-label="Чёрный котик"><svg viewBox="0 0 120 130" aria-hidden="true"><use href="#cat-sit"/></svg></div>
     </div>
+    <div class="play-scene" aria-hidden="true">
+      <svg id="catPlay" viewBox="0 0 300 150">
+        <defs>
+          <radialGradient id="cpBallGrad" cx="38%" cy="32%" r="70%">
+            <stop offset="0" stop-color="#ff9cbd"/>
+            <stop offset=".6" stop-color="#ec6f9a"/>
+            <stop offset="1" stop-color="#cf4b7b"/>
+          </radialGradient>
+          <filter id="cpOutline" x="-20%" y="-20%" width="140%" height="150%">
+            <feMorphology in="SourceAlpha" operator="dilate" radius="2.5" result="grown"/>
+            <feFlood flood-color="#fff"/>
+            <feComposite in2="grown" operator="in" result="outline"/>
+            <feDropShadow in="outline" dx="0" dy="5" stdDeviation="5" flood-color="#3d1a2b" flood-opacity=".18" result="shadow"/>
+            <feMerge>
+              <feMergeNode in="shadow"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <clipPath id="cpBallClip">
+            <circle cx="0" cy="0" r="14"/>
+          </clipPath>
+        </defs>
+
+        <ellipse cx="128" cy="138" rx="66" ry="5" fill="#6b2443" opacity=".1"/>
+        <ellipse id="cpBallShadow" cx="200" cy="138" rx="14" ry="3.5" fill="#6b2443" opacity=".12"/>
+        <path id="cpThread" d="M206 131 C 230 140, 250 126, 296 134" fill="none" stroke="#e8578a" stroke-width="2" stroke-linecap="round"/>
+
+        <g class="cp-cat" filter="url(#cpOutline)">
+          <g id="cpBody">
+          <g id="cpTail">
+            <path d="M84 118 C 52 120, 42 92, 56 76 C 62 70, 70 74, 66 80" fill="none" stroke="#f5b077" stroke-width="13" stroke-linecap="round"/>
+          </g>
+          <ellipse cx="88" cy="131" rx="14" ry="7.5" fill="#f5b077"/>
+          <ellipse cx="108" cy="106" rx="40" ry="30" fill="#f5b077"/>
+          <path d="M82 86 q5 6 3 12 M96 80 q5 7 3 13" fill="none" stroke="#e8955a" stroke-width="4" stroke-linecap="round"/>
+          <ellipse cx="124" cy="114" rx="20" ry="17" fill="#ffe2c6"/>
+          <ellipse cx="114" cy="132" rx="13" ry="7.5" fill="#f5b077"/>
+          <ellipse cx="146" cy="132" rx="12" ry="7.5" fill="#f5b077"/>
+          <path d="M141 135 v-3 M146 136 v-3 M151 135 v-3" stroke="#d9874f" stroke-width="1.4" stroke-linecap="round"/>
+
+          <g id="cpPaw">
+            <path d="M138 110 L 160 124" stroke="#f5b077" stroke-width="15" stroke-linecap="round"/>
+            <ellipse cx="163" cy="126" rx="10" ry="8" fill="#f5b077"/>
+            <circle cx="166" cy="128" r="2.6" fill="#ffb3c4"/>
+            <circle cx="160" cy="130" r="1.6" fill="#ffb3c4"/>
+            <circle cx="168" cy="123" r="1.6" fill="#ffb3c4"/>
+          </g>
+
+          <g id="cpHead">
+            <path d="M118 52 L 116 18 L 144 36 Z" fill="#f5b077" stroke="#f5b077" stroke-width="7" stroke-linejoin="round"/>
+            <path d="M174 46 L 182 13 L 154 32 Z" fill="#f5b077" stroke="#f5b077" stroke-width="7" stroke-linejoin="round"/>
+            <path d="M122 42 L 121 26 L 135 35 Z" fill="#ffb3c4"/>
+            <path d="M172 40 L 176 24 L 162 33 Z" fill="#ffb3c4"/>
+            <ellipse cx="150" cy="68" rx="40" ry="35" fill="#f5b077"/>
+            <path d="M142 37 v9 M150 35 v10 M158 37 v9" stroke="#e8955a" stroke-width="3.5" stroke-linecap="round"/>
+            <ellipse cx="160" cy="86" rx="20" ry="13" fill="#ffe2c6"/>
+            <ellipse cx="128" cy="82" rx="7.5" ry="4.5" fill="#ff8fb1" opacity=".55"/>
+            <ellipse cx="184" cy="80" rx="6.5" ry="4" fill="#ff8fb1" opacity=".55"/>
+            <g id="cpEyes">
+              <g id="cpEyeLeft">
+                <ellipse cx="141" cy="68" rx="7" ry="9" fill="#4a2235"/>
+                <circle cx="143.5" cy="64.5" r="2.8" fill="#fff"/>
+                <circle cx="139.5" cy="72" r="1.3" fill="#fff"/>
+              </g>
+              <g id="cpEyeRight">
+                <ellipse cx="170" cy="66" rx="7" ry="9" fill="#4a2235"/>
+                <circle cx="172.5" cy="62.5" r="2.8" fill="#fff"/>
+                <circle cx="168.5" cy="70" r="1.3" fill="#fff"/>
+              </g>
+            </g>
+            <path d="M157 78 h7 l-3.5 4 Z" fill="#f27a9f"/>
+            <path d="M153.5 84 q3.5 4 7 0 q3.5 4 7 0" fill="none" stroke="#4a2235" stroke-width="2" stroke-linecap="round"/>
+            <path d="M178 84 l14 -3 M178 88 l14 2 M136 86 l-13 -2 M136 90 l-12 3" stroke="#d9874f" stroke-width="1.4" stroke-linecap="round"/>
+          </g>
+          </g>
+        </g>
+
+        <g id="cpBall" transform="translate(200 124)" filter="url(#cpOutline)">
+          <g id="cpBallSpin">
+            <circle cx="0" cy="0" r="14" fill="url(#cpBallGrad)"/>
+            <g clip-path="url(#cpBallClip)" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".6">
+              <path d="M-14 -6 C -5 -12, 6 -12, 14 -5"/>
+              <path d="M-14 1 C -4 -6, 7 -6, 14 2"/>
+              <path d="M-13 8 C -4 2, 7 2, 13 9"/>
+              <path d="M-6 -14 C 3 -5, 3 6, -4 14"/>
+              <path d="M2 -14 C 10 -5, 10 6, 4 14"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
     <p class="drag-hint" data-text="hero.hint"></p>
   </section>
 
@@ -189,10 +315,6 @@
       <div class="sticker s-stack black" style="rotate:4deg" role="button" tabindex="0" aria-label="Чёрный котик"><svg viewBox="0 0 150 104" aria-hidden="true"><use href="#cat-loaf"/></svg></div>
     </div>
     <ul class="skills" id="skillsList"></ul>
-    <p class="legend">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#paw"/></svg>
-      <span data-text="skills.legend"></span>
-    </p>
   </section>
 
   <section class="section projects" id="projects" aria-labelledby="projects-title">
@@ -305,11 +427,6 @@
       <p class="cat-status" id="catStatus" aria-live="polite"></p>
 
       <ul class="contact-list locked" id="contactList" inert></ul>
-
-      <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="wave" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/><path class="mute" d="M16 9l5 6M21 9l-5 6"/></svg>
-        <span id="soundLabel"></span>
-      </button>
     </div>
   </section>
 
@@ -322,6 +439,14 @@
     <div class="sticker s-foot cream" style="rotate:-3deg" role="button" tabindex="0" aria-label="Котик в подвале"><svg viewBox="0 0 150 104" aria-hidden="true"><use href="#cat-loaf"/></svg></div>
   </div>
 </footer>
+
+<div class="side-cats" id="sideCats" aria-hidden="true">
+  <div class="yarn-cat cream" id="yarnCat">
+    <span class="yarn-ball"></span>
+    <span class="yarn-thread" id="yarnThread"></span>
+    <svg class="yarn-body" id="yarnBody" viewBox="0 0 80 124"><use href="#cat-hang"/></svg>
+  </div>
+</div>
 
 <div class="flash" id="flash" aria-hidden="true"></div>
 

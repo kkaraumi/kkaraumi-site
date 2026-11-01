@@ -5,6 +5,8 @@ import { initCodeWindow } from "./code-window.js";
 import { initStickers } from "./stickers.js";
 import { initSound } from "./sound.js";
 import { initCatBomb } from "./cat-bomb.js";
+import { initSideCats } from "./side-cats.js";
+import { initCatPlay } from "./cat-play.js";
 
 const MOBILE_QUERY = window.matchMedia("(max-width: 980px)");
 
@@ -81,6 +83,8 @@ initCodeWindow(content.code);
 initStickers(content.meows);
 initSound(content.contact);
 initCatBomb(content.contact);
+initSideCats();
+initCatPlay();
 initMenu();
 initActiveSection();
 initTabTitle();

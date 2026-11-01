@@ -7,7 +7,7 @@
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-[![Deploy](https://github.com/kkaraumi/kkaraumi-ru/actions/workflows/deploy.yml/badge.svg)](https://github.com/kkaraumi/kkaraumi-ru/actions/workflows/deploy.yml)
+[![Deploy](https://github.com/kkaraumi/kkaraumi-site/actions/workflows/deploy.yml/badge.svg)](https://github.com/kkaraumi/kkaraumi-site/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-e8578a.svg)](LICENSE)
 [![Website](https://img.shields.io/badge/kkaraumi.ru-online-e8578a)](https://kkaraumi.ru)
 
@@ -24,9 +24,11 @@
 - Разделы «Обо мне», «Стек», «Проекты», «Хобби» и «Контакты».
 - Контакты охраняет котик. Пока он цел, они размыты. После нажатия на лапку котик дрожит, над ним вырастает розовый ядерный гриб, экран вспыхивает, и контакты открываются. Котик остаётся обугленным, но цел.
 - Сайт запоминает, сколько взрывов пережил котик.
-- Звук взрыва создаётся прямо в браузере. По умолчанию он выключен, выбор сохраняется.
+- Звуки (взрыв, мяуканье, мурчание) создаются прямо в браузере. По умолчанию звук выключен, выбор сохраняется.
 - Окно редактора с файлом `evgenia.py`: код про хозяйку сайта появляется построчно.
-- Котиков-стикеров можно перетаскивать, а если ткнуть, они отвечают «мяу».
+- Котиков-стикеров можно тыкать: они отвечают репликой, мяукают или мурчат.
+- Сбоку на нитке висит котик: при прокрутке он спускается вниз и раскачивается.
+- На главном экране котик играет с клубком.
 - Превью проектов нарисованы на CSS: поле «Морского боя» и мини-браузер с этим сайтом.
 - Меню подсвечивает текущий раздел, на телефоне открывается бургером.
 - Отдельная вёрстка для телефона, без горизонтальной прокрутки на ширине от 360 px.
@@ -41,7 +43,7 @@
 | CSS3 | Сетка, адаптивная вёрстка, анимации взрыва и окна кода |
 | JavaScript (ES-модули) | Отрисовка разделов из данных, меню, фишки сайта |
 | IntersectionObserver | Подсветка текущего раздела в меню |
-| Web Audio API | Звук взрыва без аудиофайлов |
+| Web Audio API | Звуки взрыва, мяуканья и мурчания без аудиофайлов |
 | localStorage | Счётчик взрывов и настройка звука |
 | Google Fonts | Шрифты Unbounded, Nunito и Caveat |
 | GitHub Actions | Автоматическая выкладка на хостинг по FTP |
@@ -51,7 +53,7 @@
 ## Структура проекта
 
 ```
-kkaraumi-ru/
+kkaraumi-site/
 ├── index.html               разметка страницы и мета-теги
 ├── assets/
 │   ├── css/
@@ -66,9 +68,11 @@ kkaraumi-ru/
 │       ├── dom.js           общие функции для работы с DOM
 │       ├── storage.js       безопасная работа с localStorage
 │       ├── code-window.js   окно кода evgenia.py
-│       ├── stickers.js      котики-стикеры: перетаскивание и «мяу»
+│       ├── stickers.js      котики-стикеры: реплики, мяуканье и мурчание
 │       ├── cat-bomb.js      взрыв котика и открытие контактов
-│       └── sound.js         звук взрыва и переключатель звука
+│       ├── side-cats.js     котик на нитке сбоку страницы
+│       ├── cat-play.js      анимация котика с клубком
+│       └── sound.js         звуки и переключатель звука
 ├── docs/
 │   └── screenshots/         скриншоты для README
 └── .github/
@@ -83,8 +87,8 @@ kkaraumi-ru/
 Сайт использует ES-модули, поэтому его нужно открыть через локальный сервер, а не двойным кликом по `index.html`:
 
 ```bash
-git clone https://github.com/kkaraumi/kkaraumi-ru.git
-cd kkaraumi-ru
+git clone https://github.com/kkaraumi/kkaraumi-site.git
+cd kkaraumi-site
 python -m http.server 8000
 ```
 

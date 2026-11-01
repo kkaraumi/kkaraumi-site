@@ -34,14 +34,6 @@ function renderAbout(about) {
   renderDefinitionList(qs("#aboutCard"), about.card, "term", "value");
 }
 
-function renderPaws(level) {
-  const box = el("div", { className: "paws", attrs: { role: "img", "aria-label": `уровень ${level} из 5` } });
-  for (let i = 0; i < 5; i++) {
-    box.append(svgUse("paw", "0 0 100 100", i < level ? "on" : ""));
-  }
-  return box;
-}
-
 function renderSkills(skills) {
   const list = qs("#skillsList");
   skills.items.forEach((skill) => {
@@ -49,7 +41,6 @@ function renderSkills(skills) {
       el("li", { className: "card skill" }, [
         el("p", { className: "file", text: skill.file }),
         el("h3", { text: skill.name }),
-        renderPaws(skill.level),
         el("p", { className: "skill-text", text: skill.text }),
       ])
     );
@@ -106,10 +97,25 @@ function renderHobbyDecor(kind) {
   if (kind === "dota") {
     return el("div", { className: "snow", attrs: { "aria-hidden": "true" } }, Array.from({ length: 6 }, () => el("i")));
   }
+  if (kind === "write") {
+    return el("div", { className: "sprout", attrs: { "aria-hidden": "true" } }, [svgUse("leaf", "0 0 64 64")]);
+  }
+  if (kind === "toys") {
+    return el("div", { className: "plush", attrs: { "aria-hidden": "true" } }, [
+      svgUse("cat-sit", "0 0 120 130", "ginger"),
+      svgUse("cat-loaf", "0 0 150 104", "grey"),
+      svgUse("cat-sit", "0 0 120 130", "cream"),
+    ]);
+  }
   if (kind === "voice") {
     return el("div", { className: "eq", attrs: { "aria-hidden": "true" } }, Array.from({ length: 7 }, () => el("i")));
   }
   return null;
+}
+
+function renderHobbyText(hobby) {
+  const entries = hobby.entries || [{ title: hobby.title, text: hobby.text }];
+  return entries.map((entry) => el("div", { className: "tile-entry" }, [el("h3", { text: entry.title }), el("p", { text: entry.text })]));
 }
 
 function renderHobbies(hobbies) {
@@ -118,8 +124,7 @@ function renderHobbies(hobbies) {
     const tile = el("article", { className: `tile tile-${hobby.kind}` }, [
       renderHobbyDecor(hobby.kind),
       el("p", { className: "tile-tag", text: hobby.tag }),
-      el("h3", { text: hobby.title }),
-      el("p", { text: hobby.text }),
+      ...renderHobbyText(hobby),
       hobby.note ? el("p", { className: "hand", text: hobby.note }) : null,
     ]);
     list.append(tile);

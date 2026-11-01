@@ -311,7 +311,7 @@ section {
   align-items: center;
   gap: 56px;
   min-height: calc(100vh - 80px);
-  padding: 72px 0 96px;
+  padding: 28px 0 140px;
 }
 
 .chip {
@@ -555,8 +555,7 @@ h1 {
 .sticker {
   position: absolute;
   z-index: 5;
-  cursor: grab;
-  touch-action: none;
+  cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -569,9 +568,10 @@ h1 {
   pointer-events: none;
 }
 
-.sticker.grab {
-  cursor: grabbing;
-  z-index: 25;
+.sticker:focus-visible {
+  outline: 3px solid var(--rose);
+  outline-offset: 4px;
+  border-radius: 16px;
 }
 
 .sticker.wiggle svg {
@@ -716,40 +716,10 @@ h1 {
   font-size: 1.3rem;
 }
 
-.skill p:last-child {
+.skill-text {
   margin: 0;
   color: var(--muted);
   font-size: .95rem;
-}
-
-.paws {
-  display: flex;
-  gap: 4px;
-}
-
-.paws svg {
-  width: 22px;
-  height: 22px;
-  fill: var(--petal);
-}
-
-.paws svg.on {
-  fill: var(--rose);
-}
-
-.legend {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 20px 0 0;
-  font-size: .9rem;
-  color: var(--muted);
-}
-
-.legend svg {
-  width: 16px;
-  height: 16px;
-  fill: var(--rose);
 }
 
 .project-list {
@@ -952,7 +922,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
-    "dota dota write"
+    "dota toys write"
     "dance voice write";
   gap: 20px;
 }
@@ -981,6 +951,16 @@ h1 {
   position: relative;
 }
 
+.tile-entry + .tile-entry {
+  margin-top: 22px;
+}
+
+.tile-write .tile-entry:last-of-type {
+  margin-top: 34px;
+  padding-top: 22px;
+  border-top: 2px dashed var(--petal);
+}
+
 .tile-tag {
   position: absolute !important;
   top: 24px;
@@ -995,19 +975,18 @@ h1 {
 
 .tile-dota {
   grid-area: dota;
-  background: linear-gradient(135deg, #2b2350, #5a4aa8 60%, #8f7de0);
-  color: #fff;
-  min-height: 260px;
+  background: linear-gradient(135deg, #eaf6ff, #cfe8ff 55%, #b6dcff);
+  color: #1f3d66;
 }
 
 .tile-dota p {
-  color: rgba(255, 255, 255, .8);
+  color: #3d5f8a;
   max-width: 40ch;
 }
 
 .tile-dota .tile-tag {
-  background: rgba(255, 255, 255, .14);
-  color: #fff !important;
+  background: rgba(255, 255, 255, .75);
+  color: #2b67a8 !important;
 }
 
 .snow i {
@@ -1015,10 +994,10 @@ h1 {
   width: 14px;
   height: 14px;
   background:
-    linear-gradient(#fff, #fff) center / 2px 100% no-repeat,
-    linear-gradient(60deg, transparent 46%, #fff 46%, #fff 54%, transparent 54%),
-    linear-gradient(-60deg, transparent 46%, #fff 46%, #fff 54%, transparent 54%);
-  opacity: .5;
+    linear-gradient(#7fb4e8, #7fb4e8) center / 2px 100% no-repeat,
+    linear-gradient(60deg, transparent 46%, #7fb4e8 46%, #7fb4e8 54%, transparent 54%),
+    linear-gradient(-60deg, transparent 46%, #7fb4e8 46%, #7fb4e8 54%, transparent 54%);
+  opacity: .7;
   animation: snow 9s linear infinite;
 }
 
@@ -1028,6 +1007,49 @@ h1 {
 .snow i:nth-child(4) { right: 14%; top: -10%; animation-delay: -1.5s; transform: scale(.8); }
 .snow i:nth-child(5) { right: 48%; top: -10%; animation-delay: -4.5s; transform: scale(1.3); }
 .snow i:nth-child(6) { right: 30%; top: -10%; animation-delay: -7.5s; transform: scale(.7); }
+
+.plush {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.plush svg {
+  width: 38px;
+  height: auto;
+  filter: var(--sticker);
+}
+
+.plush svg:nth-child(1) {
+  rotate: -8deg;
+}
+
+.plush svg:nth-child(2) {
+  width: 52px;
+}
+
+.tile-toys {
+  grid-area: toys;
+  background: linear-gradient(160deg, #fff, var(--blush));
+}
+
+.sprout {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  width: 56px;
+  transform-origin: 50% 100%;
+  animation: sway 4s ease-in-out infinite;
+}
+
+.sprout svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
 .tile-write {
   grid-area: write;
@@ -1454,6 +1476,11 @@ h1 {
   to { translate: -40px 320px; rotate: 180deg; }
 }
 
+@keyframes sway {
+  0%, 100% { rotate: -4deg; }
+  50% { rotate: 4deg; }
+}
+
 @keyframes eq {
   0%, 100% { transform: scaleY(.25); }
   50% { transform: scaleY(1); }
@@ -1548,11 +1575,10 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 28px;
-  padding: 8px 16px;
+  padding: 10px 16px;
   border: 0;
   border-radius: 999px;
-  background: rgba(255, 255, 255, .7);
+  background: var(--blush);
   font: inherit;
   font-size: .9rem;
   font-weight: 700;
@@ -1562,7 +1588,7 @@ h1 {
 }
 
 .sound-toggle:hover {
-  background: var(--white);
+  background: var(--petal);
   color: var(--ink);
 }
 
@@ -1590,6 +1616,84 @@ h1 {
 
 .sound-toggle.is-on .mute {
   display: none;
+}
+
+.play-scene {
+  position: absolute;
+  right: -24px;
+  bottom: 10px;
+  width: min(280px, 26vw);
+  pointer-events: none;
+}
+
+.play-scene svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.side-cats {
+  --yarn-w: clamp(54px, 4.4vw, 92px);
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.yarn-cat {
+  position: absolute;
+  top: 0;
+  left: max(6px, calc((100vw - 1140px) / 4 - var(--yarn-w) / 2));
+  width: var(--yarn-w);
+  height: 100%;
+  transform-origin: 50% 0;
+  will-change: transform;
+}
+
+.yarn-ball {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  margin-left: -14px;
+  border-radius: 50%;
+  background:
+    repeating-linear-gradient(35deg, transparent 0 4px, rgba(255, 255, 255, .45) 4px 6px),
+    var(--rose);
+  box-shadow: 0 4px 10px rgba(107, 36, 67, .25);
+}
+
+.yarn-thread {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--rose);
+}
+
+.yarn-body {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: var(--sticker);
+}
+
+
+@media (max-width: 1279px) {
+  .side-cats {
+    --yarn-w: 34px;
+  }
+
+  .yarn-cat {
+    left: -6px;
+  }
 }
 
 @media (max-width: 980px) {
@@ -1662,10 +1766,19 @@ h1 {
     padding-bottom: 120px;
   }
 
+  .play-scene {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    justify-self: center;
+    width: min(100%, 340px);
+    margin-top: -40px;
+  }
+
   .drag-hint {
-    left: 50%;
-    translate: -50% 0;
-    white-space: nowrap;
+    left: 0;
+    right: 0;
+    text-align: center;
   }
 
   .project-list {
@@ -1675,9 +1788,9 @@ h1 {
   .bento {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      "dota dota"
-      "write write"
-      "dance voice";
+      "dota toys"
+      "dance voice"
+      "write write";
   }
 
   .contact-list {
@@ -1746,9 +1859,10 @@ h1 {
     grid-template-columns: 1fr;
     grid-template-areas:
       "dota"
-      "write"
+      "toys"
       "dance"
-      "voice";
+      "voice"
+      "write";
   }
 
   .tile {
@@ -1766,6 +1880,20 @@ h1 {
 
   .s-foot {
     display: none;
+  }
+
+  .side-cats {
+    --yarn-w: 26px;
+  }
+
+  .yarn-cat {
+    left: -6px;
+  }
+
+  .yarn-ball {
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
   }
 
   .nav-cta {
@@ -1801,30 +1929,12 @@ h1 {
   }
 
   .skill {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 10px 12px;
+    gap: 8px;
     padding: 20px;
   }
 
-  .skill .file,
-  .skill .skill-text {
-    grid-column: 1 / -1;
-  }
-
-  .skill .file {
-    justify-self: start;
-  }
-
   .skill h3 {
-    font-size: 1.1rem;
-    overflow-wrap: anywhere;
-  }
-
-  .paws svg {
-    width: 20px;
-    height: 20px;
+    font-size: 1.15rem;
   }
 
   .project-body {
@@ -1836,7 +1946,19 @@ h1 {
   }
 
   .sound-toggle {
-    margin-top: 22px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .sound-toggle span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
   }
 }
 

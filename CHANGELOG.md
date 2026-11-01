@@ -4,6 +4,23 @@
 
 Формат основан на [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/), версии следуют [Semantic Versioning](https://semver.org/lang/ru/).
 
+## [1.0.1] - 2026-11-01
+
+### Added
+
+- Котик на нитке сбоку страницы: спускается при прокрутке и раскачивается.
+- Анимация котика, играющего с клубком, на главном экране.
+- Мяуканье и мурчание котиков-стикеров через Web Audio API.
+
+### Changed
+
+- Котики-стикеры теперь отвечают репликами вместо перетаскивания.
+- Обновлены тексты в разделах «Стек» и «Хобби».
+
+### Fixed
+
+- Ссылка «Код на GitHub» у проекта «Этот сайт» вела на несуществующий репозиторий.
+
 ## [1.0.0] - 2026-10-28
 
 ### Added
@@ -22,4 +39,5 @@
 - Мета-теги для превью ссылки, favicon.
 - Автоматическая выкладка на хостинг через GitHub Actions.
 
-[1.0.0]: https://github.com/kkaraumi/kkaraumi-ru/releases/tag/v1.0.0
+[1.0.1]: https://github.com/kkaraumi/kkaraumi-site/releases/tag/v1.0.1
+[1.0.0]: https://github.com/kkaraumi/kkaraumi-site/releases/tag/v1.0.0
